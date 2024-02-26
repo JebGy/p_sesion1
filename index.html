@@ -4,19 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RickApp</title>
-    
   </head>
-  <body>
-    <nav class="bg-slate-50 flex flex-row p-8 justify-between text-xl text-black w-screen fixed">
-      <h1 class="font-black text-3xl">RickApp</h1>
-      <div class="gap-4 flex flex-row">
-        <button id="prev" class="font-black text-white bg-red-500 p-2 px-4 rounded-lg active:scale-75 transition-transform">Prev</button>
-        <button id="next" class="font-black text-white bg-green-500 p-2 rounded-lg active:scale-75 transition-transform">Next</button>
+  <body class="dark:bg-zinc-800 dark:text-white">
+    <nav
+      class="dark:bg-zinc-800 bg-zinc-50 flex lg:flex-row flex-col gap-4 p-8 justify-between items-center text-xl  w-screen fixed shadow-lg shadow-cyan-500 z-[99]"
+    >
+      <h1 class="font-black lg:text-4xl text-xl">RickApp</h1>
+      <div class="gap-4 flex flex-row justify-between items-center lg:w-fit w-full">
+        <h3 class="text-center font-black" id="pageid">Page 10</h3>
+        <div class="flex flex-row gap-4 items-center">
+          <button
+            id="prev"
+            class="font-black bg-red-500 p-2 px-4 rounded-lg active:scale-75 transition-transform"
+          >
+            Prev
+          </button>
+          <button
+            id="next"
+            class="font-black bg-green-500 p-2 rounded-lg active:scale-75 transition-transform"
+          >
+            Next
+          </button>
+        </div>
       </div>
     </nav>
-    <main id="main" class="w-full p-16">
+    <main id="main" class="w-full px-8 py-32">
       <div></div>
     </main>
+    <footer
+      class="w-full h-fit p-8 flex flex-col justify-center items-center text-xl bg-zinc-800"
+    >
+      <p class="text-transparent font-black">Created by Favio Munayco Rivera</p>
+    </footer>
   </body>
   <script src="/index.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>

@@ -1,6 +1,7 @@
 //global
 let charactersList = [];
 let currentPage = 10;
+const pageId = document.getElementById("pageid");
 
 //Obtenemos los personajes
 async function getCharacterData(page) {
@@ -20,6 +21,7 @@ async function getCharacterData(page) {
 //Llamamos la función
 
 function drawData() {
+  pageId.innerHTML = `Page ${currentPage+1}`;
   const mainContainer = document.getElementById("main");
 
   // Eliminar todos los elementos hijos del contenedor principal
@@ -32,7 +34,7 @@ function drawData() {
     "grid lg:grid-cols-4 justify-center gap-4 p-4 md:grid-cols-3 grid-cols-2";
   charactersList.map((character, index, array) => {
     const card = document.createElement("div");
-    card.className = "flex flex-col justify-center gap-2 shadow shadow-lg";
+    card.className = "flex flex-col justify-center rounded-lg shadow-xl overflow-hidden hover:scale-105 bg-transparent transition-transform hover:shadow-cyan-500";
     card.innerHTML = `<img src="${character.image}" alt="${character.name}"><p class="text-lg font-bold text-center p-2">${character.name}</p>`;
     container.appendChild(card);
   });
@@ -47,6 +49,13 @@ function pagination() {
   bPrev.onclick = () => {
     if (currentPage > 0) {
       currentPage--;
+      charactersList.length = 0;
+      getCharacterData(currentPage);
+    }
+  };
+  bNext.onclick = () => {
+    if (currentPage < 42) {
+      currentPage++;
       charactersList.length = 0;
       getCharacterData(currentPage);
     }

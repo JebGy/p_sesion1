@@ -21,12 +21,15 @@ async function getCharacterData(page) {
 
 function drawData() {
   const mainContainer = document.getElementById("main");
-  
-  const container = document.createElement("div");
-  container.className = className =
-    "grid lg:grid-cols-4 justify-center gap-4 p-4 md:grid-cols-3 grid-cols-2";
-  
 
+  // Eliminar todos los elementos hijos del contenedor principal
+  while (mainContainer.firstChild) {
+    mainContainer.removeChild(mainContainer.firstChild);
+  }
+
+  const container = document.createElement("div");
+  container.className =
+    "grid lg:grid-cols-4 justify-center gap-4 p-4 md:grid-cols-3 grid-cols-2";
   charactersList.map((character, index, array) => {
     const card = document.createElement("div");
     card.className = "flex flex-col justify-center gap-2 shadow shadow-lg";
@@ -36,10 +39,6 @@ function drawData() {
   mainContainer.appendChild(container);
 }
 
-function cleanData() {
-  const mainContainer = document.getElementById("main");
-  mainContainer.removeChild(div);
-}
 //Paginación
 function pagination() {
   getCharacterData(currentPage);
@@ -48,7 +47,7 @@ function pagination() {
   bPrev.onclick = () => {
     if (currentPage > 0) {
       currentPage--;
-      cleanData();
+      charactersList.length = 0;
       getCharacterData(currentPage);
     }
   };

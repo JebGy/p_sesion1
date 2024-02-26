@@ -7,15 +7,15 @@
     
   </head>
   <body>
-    <nav class="bg-slate-500 flex flex-row p-8 justify-between text-xl text-white w-screen fixed">
+    <nav class="bg-slate-50 flex flex-row p-8 justify-between text-xl text-black w-screen fixed">
       <h1 class="font-black text-3xl">RickApp</h1>
       <div class="gap-4 flex flex-row">
-        <button id="prev">Prev</button>
-        <button id="next">Next</button>
+        <button id="prev" class="font-black text-white bg-red-500 p-2 px-4 rounded-lg active:scale-75 transition-transform">Prev</button>
+        <button id="next" class="font-black text-white bg-green-500 p-2 rounded-lg active:scale-75 transition-transform">Next</button>
       </div>
     </nav>
-    <main id="main" class="w-screen">
-      
+    <main id="main" class="w-full p-16">
+      <div></div>
     </main>
   </body>
   <script src="/index.js"></script>
